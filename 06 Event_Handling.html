@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>event</title>
+    <link rel="stylesheet" type="text/css" href="C://Users/Amit/Desktop/React/src/css/main.css">
+    <script src="C://Users/Amit/Desktop/React/src/js/react.min.js"></script>
+    <script src="C://Users/Amit/Desktop/React/src/js/react-dom.min.js"></script>
+    <script src="C://Users/Amit/Desktop/React/src/js/browser.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+    let Comment = React.createClass ({
+        edit: function () {
+            alert('Editing comment');
+        },
+        remove: function () {
+            alert('Removing comment');
+        },
+
+        render: function () {
+            return (
+                <div className="commentContainer">
+                    <div className="commentText">{this.props.children}</div>
+                    <button onClick={this.edit} className="button-primary">Edit</button>
+                    <button onClick={this.remove} className="button-danger">Remove</button>
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <div className="board">
+            <Comment>Hey my name is Bucky</Comment>
+            <Comment>Beans</Comment>
+            <Comment>Tuna</Comment>
+        </div>
+        , document.getElementById('container'));
+</script>
+</body>
+</html>
+
